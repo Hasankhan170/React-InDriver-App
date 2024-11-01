@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
     <MenuAppBar/>
-    <Box>
+    <Box >
         <h1>Driver Registration Form</h1>
     </Box>
     </>
