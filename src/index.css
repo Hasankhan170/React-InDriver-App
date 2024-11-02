@@ -1,0 +1,644 @@
+.main-box{
+    text-align: center;
+    width: 60%;
+    margin: 0 auto;
+    height: auto;
+    margin-top: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 20px;
+    padding: 20px 10px;
+}
+
+.first-input{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+#filled-basic{
+    background-color: transparent;
+    width: 465px;
+}
+
+.second-input{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.dateBirth{
+    background-color: transparent;
+    width: 490px;
+}
+
+.personal-information{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: start;
+    
+    
+}
+
+/* .CNIC-Front{
+    display: flex;
+    justify-content: flex-start;
+    align-items: start;
+    text-align: start;
+} */
+
+@media (max-width:2500px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+        /* background-color: red; */
+        
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 630px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width:653px;
+}
+    
+   
+}
+
+@media (max-width:2000px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+        /* background-color: red; */
+        
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 557px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 580px;
+}
+    
+   
+}
+
+@media (max-width:1900px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+        /* background: red; */
+        
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 520px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 545px;
+}
+    
+   
+}
+
+@media (max-width:1890px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+        /* background-color: red; */
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 520px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 545px;
+}
+    
+   
+}
+
+@media (max-width:1700px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+        /* background-color: red; */
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 455px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 480px;
+}
+    
+   
+}
+
+@media (max-width:1600px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 410px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 434px;
+}
+    
+   
+}
+
+@media (max-width:1500px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 395px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 420px;
+}
+    
+   
+}
+
+@media (max-width:1430px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 370px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 394px;
+}
+    
+   
+}
+
+@media (max-width:1350px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 360px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 385px;
+}
+    
+   
+}
+
+@media (max-width:1330px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 355px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 380px;
+}
+    
+   
+}
+
+@media (max-width:1300px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 345px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 370px;
+}
+    
+   
+}
+
+@media (max-width:1260px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 335px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 360px;
+}
+    
+   
+}
+
+@media (max-width:1235px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 325px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 350px;
+}
+    
+   
+}
+
+@media (max-width:1200px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 315px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 340px;
+}
+    
+   
+} 
+
+@media (max-width:1160px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 305px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 330px;
+}
+    
+   
+} 
+
+@media (max-width:1135px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 295px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 315px;
+}
+    
+   
+} 
+
+@media (max-width:1100px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 500px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 525px;
+}
+    
+   
+}
+
+@media (max-width:885px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 400px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 425px;
+}
+    
+   
+}
+
+@media (max-width:725px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 300px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 325px;
+}
+    
+   
+}
+
+@media (max-width:565px){
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 200px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 225px;
+}
+    
+   
+}
+
+@media (max-width:495px){
+    .main-box{
+        width: 90%;
+    }
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 380px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 405px;
+}
+    
+   
+}
+
+@media (max-width:465px){
+    .main-box{
+        width: 90%;
+    }
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 300px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 325px;
+}
+    
+   
+}
+
+@media (max-width:385px){
+    .main-box{
+        width: 90%;
+    }
+    .personal-information{
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+        width: 100%;
+        margin: 0 auto;
+        justify-content: start;
+    }
+
+
+    #filled-basic{
+        background-color: transparent;
+        width: 200px;
+    }
+    
+.dateBirth{
+    background-color: transparent;
+    width: 225px;
+}
+    
+   
+}
