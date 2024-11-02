@@ -1,4 +1,4 @@
-import { Box, TextField } from "@mui/material"
+import { Box, Button, TextField } from "@mui/material"
 import MenuAppBar from "./components/Navbar"
 
 
@@ -93,7 +93,36 @@ const App = () => {
        </Box>
        </Box>
 
-    
+       <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 3 }}>
+      <TextField
+        type="file"
+        id="cnic-upload"
+        label="CNIC Front and Back Image"
+        InputLabelProps={{ shrink: true }}
+        fullWidth
+        variant="outlined"
+      />
+      
+      <TextField
+        type="file"
+        id="license-upload"
+        label="Driving License Image"
+        InputLabelProps={{ shrink: true }}
+        fullWidth
+        variant="outlined"
+      />
+    </Box>
+    <Button 
+          variant="contained" 
+          component="label" 
+          fullWidth 
+          sx={{
+            height: 48,
+            textTransform: 'none',
+          }}
+        >
+          Submit
+        </Button>
      </Box>
 
      
