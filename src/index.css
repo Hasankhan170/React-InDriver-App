@@ -1,4 +1,4 @@
-.main-box{
+/* .main-box{
     text-align: center;
     width: 60%;
     margin: 0 auto;
@@ -45,12 +45,6 @@
     
 }
 
-/* .CNIC-Front{
-    display: flex;
-    justify-content: flex-start;
-    align-items: start;
-    text-align: start;
-} */
 
 @media (max-width:2500px){
     .personal-information{
@@ -61,7 +55,7 @@
         width: 100%;
         margin: 0 auto;
         justify-content: start;
-        /* background-color: red; */
+    
         
     }
 
@@ -88,7 +82,7 @@
         width: 100%;
         margin: 0 auto;
         justify-content: start;
-        /* background-color: red; */
+       
         
     }
 
@@ -115,7 +109,7 @@
         width: 100%;
         margin: 0 auto;
         justify-content: start;
-        /* background: red; */
+   
         
     }
 
@@ -142,7 +136,7 @@
         width: 100%;
         margin: 0 auto;
         justify-content: start;
-        /* background-color: red; */
+
     }
 
 
@@ -168,7 +162,6 @@
         width: 100%;
         margin: 0 auto;
         justify-content: start;
-        /* background-color: red; */
     }
 
 
@@ -641,4 +634,6 @@
 }
     
    
-}
+} */
+
+
