@@ -1,11 +1,21 @@
 import { Box, Button, TextField, Typography, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import MenuAppBar from "./components/Navbar";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
 
 const App = () => {
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+ 
+
+  const formValues = (formdata)=>{
+    console.log(formdata);
+     
+    
+  }
   return (
     <>
       <MenuAppBar />
-      <Box className="main-box" sx={{ p: 2 }}>
+      <form onSubmit={handleSubmit(formValues)} className="main-box" >
         <Typography variant="h4" gutterBottom>
           Driver Registration Form
         </Typography>
@@ -154,6 +164,7 @@ const App = () => {
         <Button
           variant="contained"
           fullWidth
+          type="submit"
           sx={{
             height: 48,
             textTransform: 'none',
@@ -161,7 +172,7 @@ const App = () => {
         >
           Submit
         </Button>
-      </Box>
+      </form>
     </>
   );
 };
