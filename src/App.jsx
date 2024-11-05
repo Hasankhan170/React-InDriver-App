@@ -1,18 +1,48 @@
 import { Box, Button, TextField, Typography, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import MenuAppBar from "./components/Navbar";
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { auth, db } from "./config/Firebase";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
 
 
 const App = () => {
+  const [loading ,setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm();
 
  
 
-  const formValues = (data)=>{
-    
-    console.log(data);
-    
-    
+  const formValues = async (data)=>{
+    const { name, cnic, date, number, email, carCompanay,password, CarModel, BikeCompany, BikeModel, VehicleColor, CarYear, BikeYear } = data;
+    // console.log(name, cnic, date, number, email, address, carCompanay, CarModel, BikeCompany, BikeModel, VehicleColor, CarYear, BikeYear);
+    setLoading(true)
+
+    try {
+     const userCredential = await createUserWithEmailAndPassword(auth, email, password)
+     console.log("User registered:", userCredential.user.uid); 
+     const user = userCredential.user;
+
+     await setDoc(doc(db,"users",user.uid),{
+      name,
+      cnic,
+      date,
+      number,
+      email,
+      carCompanay,
+      carModel: CarModel,
+      bikeCompany: BikeCompany,
+      bikeModel: BikeModel,
+      vehicleColor: VehicleColor,
+      carYear: CarYear,
+      bikeYear: BikeYear,
+     })
+     console.log("Data written to Firestore successfully.");
+    } catch (error) {
+      console.log(error);    
+    }finally{
+      setLoading(false)
+    }
   }
   return (
     <>
@@ -99,14 +129,14 @@ const App = () => {
 
     <Box sx={{ width: '100%' }}>
       <TextField
-        {...register('address', { required: "Address is required" })}
+        {...register('password', { required: "Password is required" })}
         type="text"
-        id="current-address"
-        label="Current Address"
+        id="password"
+        label="Password"
         variant="filled"
         fullWidth
       />
-      {errors.address && <Box sx={{ color: 'red', mt: 1 }}>{errors.address.message}</Box>}
+      {errors.password && <Box sx={{ color: 'red', mt: 1 }}>{errors.password.message}</Box>}
     </Box>
   </Box>
         </Box>
@@ -227,7 +257,7 @@ const App = () => {
 
 
        
-        <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 3, mb: 4 }}>
+        {/* <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 3, mb: 4 }}>
   <Box sx={{ width: '100%' }}>
     <TextField
       {...register('CNICImage', { required: "CNIC Image is required" })}
@@ -255,11 +285,25 @@ const App = () => {
     />
     {errors.DrivingLicenseImage && <Box sx={{ color: 'red', mt: 1 }}>{errors.DrivingLicenseImage.message}</Box>}
   </Box>
-        </Box>
+        </Box> */}
 
 
     
-        <Button
+        {
+          loading ? (
+            <Button
+          variant="contained"
+          fullWidth
+          type="submit"
+          sx={{
+            height: 48,
+            textTransform: 'none',
+          }}
+        >
+          Loading...
+        </Button>
+          ) : (
+            <Button
           variant="contained"
           fullWidth
           type="submit"
@@ -270,6 +314,8 @@ const App = () => {
         >
           Submit
         </Button>
+          )
+        }
       </form>
     </>
   );
