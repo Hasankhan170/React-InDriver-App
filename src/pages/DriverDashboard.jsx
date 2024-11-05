@@ -45,6 +45,7 @@ const DriverDashboard = () => {
 
 
 const DriverCard = ({ driver }) => {
+    console.log(driver);
     return (
         <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
             <CardContent>
@@ -56,9 +57,6 @@ const DriverCard = ({ driver }) => {
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                     <strong>Email:</strong> {driver.email}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    <strong>Address:</strong> {driver.address}
                 </Typography>
                 {driver.carCompanay && (
                     <>
@@ -87,10 +85,8 @@ const DriverCard = ({ driver }) => {
                     </>
                 )}
                 <Typography variant="body2" color="text.secondary">
-                    <strong>Vehicle Color:</strong> {driver.VehicleColor}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                    <strong>CNIC Image:</strong> {driver.CNICImage}
+                    <strong>Vehicle Color:</strong> {driver.vehicleColor
+                    }
                 </Typography>
             </CardContent>
         </Card>
