@@ -8,6 +8,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import MenuItem from '@mui/material/MenuItem';
 import Menu from '@mui/material/Menu';
+import { Link } from 'react-router-dom';
 
 export default function MenuAppBar() {
   const [auth, setAuth] = React.useState(true);
@@ -38,7 +39,7 @@ export default function MenuAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+            In Driver
           </Typography>
           {auth && (
             <div>
@@ -52,7 +53,8 @@ export default function MenuAppBar() {
               >
                 <AccountCircle />
               </IconButton>
-              <Menu
+              <Menu 
+              
                 id="menu-appbar"
                 anchorEl={anchorEl}
                 anchorOrigin={{
@@ -67,8 +69,8 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem  onClick={handleClose}><Link style={{ textDecoration: 'none', color: 'inherit' }} to= "/register">Register</Link></MenuItem>
+                <MenuItem onClick={handleClose}><Link style={{ textDecoration: 'none', color: 'inherit' }} to= "/login">Login</Link></MenuItem>
               </Menu>
             </div>
           )}

@@ -5,6 +5,7 @@ import App from './App.jsx'
 import Login from './pages/Login.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import Register from './pages/Register.jsx'
+import DriverDashboard from './pages/DriverDashboard.jsx'
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path  :'register',
         element : <Register/>
+      },
+      {
+        path  :'driverDashboard',
+        element : <DriverDashboard/>
       }
     ]
   }
