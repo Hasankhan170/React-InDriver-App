@@ -52,7 +52,7 @@ const Register = () => {
      await setDoc(doc(db,"users",user.uid),userData)
      console.log("Data written to Firestore successfully.");
 
-     navigate('login')
+     navigate('/login')
     } catch (error) {
       console.log(error);    
     }finally{
