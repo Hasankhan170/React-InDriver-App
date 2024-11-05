@@ -19,8 +19,9 @@ const App = () => {
  
 
   const formValues = async (data)=>{
-    const { name, cnic, date, number, email, carCompanay,password, CarModel, BikeCompany, BikeModel, VehicleColor, CarYear, BikeYear } = data;
+    const { name, cnic,password, date, number, email,VehicleColor} = data;
     setLoading(true)
+
 
 
     try {
@@ -28,20 +29,26 @@ const App = () => {
      console.log("User registered:", userCredential.user.uid); 
      const user = userCredential.user;
 
-     await setDoc(doc(db,"users",user.uid),{
-      name,
-      cnic,
-      date,
-      number,
-      email,
-      carCompanay,
-      carModel: CarModel,
-      bikeCompany: BikeCompany,
-      bikeModel: BikeModel,
-      vehicleColor: VehicleColor,
-      carYear: CarYear,
-      bikeYear: BikeYear,
-     })
+     const userData = {
+       name,
+       cnic,
+       date,
+       number,
+       email,
+       vehicleColor: VehicleColor,
+     }
+
+     if(select === 'car'){
+      userData.carCompanay = data.carCompanay;
+      userData.CarModel = data.CarModel;
+      userData.CarYear = data.CarYear;
+     }else if(select === 'bike'){
+      userData.BikeCompany = data.BikeCompany;
+      userData.BikeModel = data.BikeModel;
+      userData.BikeYear = data.BikeYear;
+     }
+
+     await setDoc(doc(db,"users",user.uid),userData)
      console.log("Data written to Firestore successfully.");
     } catch (error) {
       console.log(error);    
