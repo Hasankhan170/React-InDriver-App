@@ -9,14 +9,19 @@ import { doc, setDoc } from "firebase/firestore";
 
 const App = () => {
   const [loading ,setLoading] = useState(false)
+  const [select ,setSelect] = useState("")
+
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+  const handleVehicleTypeChange = (event)=>{
+    setSelect(event.target.value)
+  }
  
 
   const formValues = async (data)=>{
     const { name, cnic, date, number, email, carCompanay,password, CarModel, BikeCompany, BikeModel, VehicleColor, CarYear, BikeYear } = data;
-    // console.log(name, cnic, date, number, email, address, carCompanay, CarModel, BikeCompany, BikeModel, VehicleColor, CarYear, BikeYear);
     setLoading(true)
+
 
     try {
      const userCredential = await createUserWithEmailAndPassword(auth, email, password)
@@ -52,7 +57,9 @@ const App = () => {
           Driver Registration Form
         </Typography>
 
-        {/* Personal Information */}
+        
+
+        
         <Box className="personal-information" sx={{ mb: 4 }}>
   <Typography variant="h6" gutterBottom>
     Personal Information
@@ -112,7 +119,7 @@ const App = () => {
         </Box>
 
 
-        {/* Contact Information */}
+       
         <Box className="contact-information" sx={{ mb: 4 }}>
   <Box sx={{ display: 'flex', gap: 2 }}>
     <Box sx={{ width: '100%' }}>
@@ -141,14 +148,25 @@ const App = () => {
   </Box>
         </Box>
 
-
-        {/* Vehicle Information */}
+        <Box sx={{ mb: 4 }}>
+          <FormControl variant="filled" fullWidth>
+            <InputLabel>Do you have a car or a bike?</InputLabel>
+            <Select value={select} onChange={handleVehicleTypeChange} fullWidth>
+              <MenuItem value="car">Car</MenuItem>
+              <MenuItem value="bike">Bike</MenuItem>
+            </Select>
+          </FormControl>
+        </Box>
+       
         <Box className="vehicle-information" sx={{ mb: 4 }}>
   <Typography variant="h6" gutterBottom>
     Vehicle Information
   </Typography>
 
-  <Box sx={{ width: '100%', mb: 2 }}>
+  {
+    select === 'car' && (
+      <>
+      <Box sx={{ width: '100%', mb: 2 }}>
     <FormControl variant="filled" fullWidth>
       <InputLabel>Car Company</InputLabel>
       <Select {...register('carCompanay', { required: "Car Company is required" })} label="Car Company" defaultValue="">
@@ -159,9 +177,9 @@ const App = () => {
       </Select>
     </FormControl>
     {errors.carCompanay && <Box sx={{ color: 'red', mt: 1 }}>{errors.carCompanay.message}</Box>}
-  </Box>
+      </Box>
 
-  <Box sx={{ width: '100%', mb: 2 }}>
+      <Box sx={{ width: '100%', mb: 2 }}>
     <FormControl variant="filled" fullWidth>
       <InputLabel>Car Model Name</InputLabel>
       <Select {...register('CarModel', { required: "Car Model is required" })} label="Car Model" defaultValue="">
@@ -176,9 +194,31 @@ const App = () => {
       </Select>
     </FormControl>
     {errors.CarModel && <Box sx={{ color: 'red', mt: 1 }}>{errors.CarModel.message}</Box>}
-  </Box>
+      </Box>
 
-  <Box sx={{ width: '100%', mb: 2 }}>
+      <Box sx={{ width: '100%' }}>
+      <FormControl variant="filled" fullWidth>
+        <InputLabel>Car Year</InputLabel>
+        <Select {...register('CarYear', { required: "Car Year is required" })} defaultValue="">
+          <MenuItem value="2016">2016</MenuItem>
+          <MenuItem value="2017">2017</MenuItem>
+          <MenuItem value="2018">2018</MenuItem>
+          <MenuItem value="2019">2019</MenuItem>
+          <MenuItem value="2020">2020</MenuItem>
+          <MenuItem value="2021">2021</MenuItem>
+          <MenuItem value="2022">2022</MenuItem>
+          <MenuItem value="2023">2023</MenuItem>
+        </Select>
+      </FormControl>
+      {errors.CarYear && <Box sx={{ color: 'red', mt: 1 }}>{errors.CarYear.message}</Box>}
+      </Box>
+      </>
+    )}
+
+ {
+  select === 'bike' && (
+    <>
+       <Box sx={{ width: '100%', mb: 2, mt:2 }}>
     <FormControl variant="filled" fullWidth>
       <InputLabel>Bike Company</InputLabel>
       <Select {...register('BikeCompany', { required: "Bike Company is required" })} label="Bike Company" defaultValue="">
@@ -206,35 +246,6 @@ const App = () => {
     {errors.BikeModel && <Box sx={{ color: 'red', mt: 1 }}>{errors.BikeModel.message}</Box>}
   </Box>
 
-  <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
-    <Box sx={{ width: '100%' }}>
-      <TextField
-        {...register('VehicleColor', { required: "Vehicle Color is required" })}
-        id="vehicle-color"
-        label="Vehicle Color"
-        variant="filled"
-        fullWidth
-      />
-      {errors.VehicleColor && <Box sx={{ color: 'red', mt: 1 }}>{errors.VehicleColor.message}</Box>}
-    </Box>
-
-    <Box sx={{ width: '100%' }}>
-      <FormControl variant="filled" fullWidth>
-        <InputLabel>Car Year</InputLabel>
-        <Select {...register('CarYear', { required: "Car Year is required" })} defaultValue="">
-          <MenuItem value="2016">2016</MenuItem>
-          <MenuItem value="2017">2017</MenuItem>
-          <MenuItem value="2018">2018</MenuItem>
-          <MenuItem value="2019">2019</MenuItem>
-          <MenuItem value="2020">2020</MenuItem>
-          <MenuItem value="2021">2021</MenuItem>
-          <MenuItem value="2022">2022</MenuItem>
-          <MenuItem value="2023">2023</MenuItem>
-        </Select>
-      </FormControl>
-      {errors.CarYear && <Box sx={{ color: 'red', mt: 1 }}>{errors.CarYear.message}</Box>}
-    </Box>
-
     <Box sx={{ width: '100%' }}>
       <FormControl variant="filled" fullWidth>
         <InputLabel>Bike Year</InputLabel>
@@ -251,44 +262,29 @@ const App = () => {
       </FormControl>
       {errors.BikeYear && <Box sx={{ color: 'red', mt: 1 }}>{errors.BikeYear.message}</Box>}
     </Box>
+    </>
+  )}
+
+ 
+
+  <Box sx={{ display: 'flex', gap: 2, mt: 2 }}>
+    <Box sx={{ width: '100%' }}>
+      <TextField
+        {...register('VehicleColor', { required: "Vehicle Color is required" })}
+        id="vehicle-color"
+        label="Vehicle Color"
+        variant="filled"
+        fullWidth
+      />
+      {errors.VehicleColor && <Box sx={{ color: 'red', mt: 1 }}>{errors.VehicleColor.message}</Box>}
+    </Box>
+
+  
+
+  
   </Box>
         </Box>
 
-
-
-       
-        {/* <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', gap: 3, mb: 4 }}>
-  <Box sx={{ width: '100%' }}>
-    <TextField
-      {...register('CNICImage', { required: "CNIC Image is required" })}
-      className="choose-file"
-      type="file"
-      id="cnic-upload"
-      label="CNIC Image"
-      InputLabelProps={{ shrink: true }}
-      fullWidth
-      variant="outlined"
-    />
-    {errors.CNICImage && <Box sx={{ color: 'red', mt: 1 }}>{errors.CNICImage.message}</Box>}
-  </Box>
-
-  <Box sx={{ width: '100%' }}>
-    <TextField
-      {...register('DrivingLicenseImage', { required: "Driving License Image is required" })}
-      className="choose-file"
-      type="file"
-      id="license-upload"
-      label="Driving License Image"
-      InputLabelProps={{ shrink: true }}
-      fullWidth
-      variant="outlined"
-    />
-    {errors.DrivingLicenseImage && <Box sx={{ color: 'red', mt: 1 }}>{errors.DrivingLicenseImage.message}</Box>}
-  </Box>
-        </Box> */}
-
-
-    
         {
           loading ? (
             <Button
