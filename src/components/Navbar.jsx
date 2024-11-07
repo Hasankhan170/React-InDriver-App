@@ -69,7 +69,7 @@ export default function MenuAppBar() {
                 open={Boolean(anchorEl)}
                 onClose={handleClose}
               >
-                <MenuItem  onClick={handleClose}><Link style={{ textDecoration: 'none', color: 'inherit' }} to= "/register">Register</Link></MenuItem>
+                <MenuItem  onClick={handleClose}><Link style={{ textDecoration: 'none', color: 'inherit' }} to= "/">Register</Link></MenuItem>
                 <MenuItem onClick={handleClose}><Link style={{ textDecoration: 'none', color: 'inherit' }} to= "/login">Login</Link></MenuItem>
               </Menu>
             </div>
