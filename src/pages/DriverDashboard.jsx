@@ -1,13 +1,15 @@
-import { onAuthStateChanged } from "firebase/auth"
+import { onAuthStateChanged, signOut } from "firebase/auth"
 import { auth, db } from "../config/Firebase"
 import { useEffect, useState } from "react"
 import { collection, getDocs, query, where } from "firebase/firestore"
-import { Card, CardContent, Typography, Grid, Box } from '@mui/material';
+import { Card, CardContent, Typography, Grid, Box, Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 
 
 const DriverDashboard = () => {
     const [allData,setAllData] = useState([])
+    const navigate = useNavigate()
 
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth,async(user)=>{
@@ -29,6 +31,14 @@ const DriverDashboard = () => {
         })
         return ()=> unsubscribe()
     },[])
+
+    const logouOut = ()=>{
+        signOut(auth).then(() => {
+            navigate('/login')
+          }).catch((error) => {
+            console.log(error);
+          });
+    }
 
     
 
@@ -90,6 +100,20 @@ const DriverDashboard = () => {
         );
     })
 }
+   <Box sx={{display:'flex' , justifyContent:'center'}}>
+   <Button 
+            variant="contained" 
+            color="primary" 
+            sx={{
+                padding: '10px 20px',
+                fontSize: '16px',
+                borderRadius: '8px',
+                textTransform: 'none',
+                boxShadow: 3
+            }}
+            onClick={logouOut}
+            >Logout</Button>
+   </Box>
     </>
   )
 }
