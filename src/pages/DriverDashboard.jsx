@@ -16,14 +16,11 @@ const DriverDashboard = () => {
                     const userData = collection(db,"users");
                     const q = query(userData,where("userId", "==", user.uid))
                     const querrySnapShot = await getDocs(q)
-                    querrySnapShot.forEach((doc)=>{
-                    setAllData((prev)=>[...prev,{id:doc.id,...doc.data()}]);
-                    console.log(doc.id,doc.data());
-                    
-                        
-                    })
-                    
-                    
+                    const fetchData = querrySnapShot.docs.map((doc)=>({
+                        id:doc.id,
+                        ...doc.data()
+                    }))
+                    setAllData(fetchData)
                 } catch (error) {
                     console.log(error);
                     
@@ -53,6 +50,8 @@ const DriverDashboard = () => {
     // useEffect(()=>{
     //     getAllData()
     // },[])
+
+
   return (
     <>
    {
