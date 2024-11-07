@@ -37,6 +37,7 @@ const Register = () => {
        number,
        email,
        vehicleColor: VehicleColor,
+       userId: user.uid 
      }
 
      if(select === 'car'){
